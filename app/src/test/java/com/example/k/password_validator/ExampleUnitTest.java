@@ -16,10 +16,7 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
 
-    @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
-    }
+    //static private String testpass = "passowrd1";
 
     /*
     //sample password strings
@@ -28,8 +25,6 @@ public class ExampleUnitTest {
     String pass3 = "password1234";
     String pass4 = "Qwerty1234";
      */
-
-    static private String testpass;
 
     @Test
     public void notPassword() throws Exception {
@@ -40,8 +35,6 @@ public class ExampleUnitTest {
     public void minChar() throws Exception {
         assertTrue(longEnough(testpass));
     }
-
-    @Test
 
     private boolean notPassword(String pass) {
         if (pass.equals("password")) {
