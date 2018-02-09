@@ -1,13 +1,10 @@
 package com.example.k.password_validator;
 
-import org.junit.AfterClass;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertTrue;
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -16,10 +13,7 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
 
-    @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
-    }
+    //static private String testpass = "Password1!";
 
     /*
     //sample password strings
@@ -28,8 +22,6 @@ public class ExampleUnitTest {
     String pass3 = "password1234";
     String pass4 = "Qwerty1234";
      */
-
-    static private String testpass;
 
     @Test
     public void notPassword() throws Exception {
@@ -42,6 +34,19 @@ public class ExampleUnitTest {
     }
 
     @Test
+    public void lowerUpperCase() throws Exception{
+        assertTrue(hasLowerUpper(testpass));
+    }
+
+    @Test
+    public void hasOneDigit() throws Exception{
+        assertTrue(hasNum(testpass));
+    }
+
+    @Test
+    public void hasOneSpecialChar() throws Exception{
+        assertTrue(specialChar(testpass));
+    }
 
     private boolean notPassword(String pass) {
         if (pass.equals("password")) {
@@ -58,4 +63,26 @@ public class ExampleUnitTest {
         return true;
     }
 
+    //3 extra tests
+    public boolean hasLowerUpper(String inputPassword){
+        if(inputPassword.equals(inputPassword.toLowerCase()) || inputPassword.equals(inputPassword.toUpperCase())){
+            System.out.print("password must have an uppercase and lowercase character");
+            return false;
+        }
+        return true;
+    }
+    public boolean hasNum(String inputPassword){
+        if(!inputPassword.matches(".*\\d.*")){
+            System.out.print("password must have at least one number");
+            return false;
+        }
+        return true;
+    }
+    public boolean specialChar(String testpass){
+        if(!ExampleUnitTest.testpass.matches(".*[~!@#$%^&*()_+].*")){
+            System.out.print("password must have at least one special characters \n(~, !, @, #, $, %, ^, &, *, (, ), _, +)");
+            return false;
+        }
+        return true;
+    }
 }
