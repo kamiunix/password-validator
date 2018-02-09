@@ -1,6 +1,5 @@
-package com.example.acme.csci3130_demo;
+package com.example.k.password_validator;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.k.password_validator.R;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -30,10 +28,10 @@ public class LoginActivity extends AppCompatActivity {
                 String pass = etxt.getText().toString();
                 String msg = "";
                 msg = notPassword(pass);
-                msg = longEnough(pass);
-                msg = hasLowerUpper(pass);
-                msg = hasNum(pass);
-                msg = specialChar(pass);
+                msg += longEnough(pass);
+                msg += hasLowerUpper(pass);
+                msg += hasNum(pass);
+                msg += specialChar(pass);
                 if (msg == "") {
                     msg = "Validated!";
                 }
